@@ -1,0 +1,12 @@
+{
+   "attributes" : [
+      {
+         "trait_type" : "Tier",
+         "value" : "Basic Vintage"
+      }
+   ],
+   "description" : "This is metacar number 2",
+   "external_url" : "https://metahub.studio",
+   "image" : "https://bafybeigyrdkz56uyxkap7nyntpdrg6357ufs7hfiyheoeabqj3r25qbefi.ipfs.dweb.link/2.png",
+   "name" : "Car #2"
+}
