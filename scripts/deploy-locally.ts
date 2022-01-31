@@ -14,8 +14,7 @@ async function deploy() {
 
 // @ts-ignore
 async function mint(metacar){
-
-    console.log(await metacar.balanceOf(process.env.PUBLIC_ADDRESS));
+    console.log("DONE");
 }
 
 deploy().then(mint);

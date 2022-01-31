@@ -1,8 +1,9 @@
-const { task } = require("hardhat/config");
+const { task, ethers } = require("hardhat/config");
 const { getContract } = require("./helpers");
 const fetch = require("node-fetch");
 
 task("mint", "Mints from the Metacar contract")
+.addParam("amount", "The amount to be minted")
 .addParam("address", "The address to receive a token")
 .setAction(async function (taskArguments, hre) {
     const contract = await getContract("Metacar", hre);
