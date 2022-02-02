@@ -32,8 +32,8 @@ contract Metacar is ERC721Enumerable, Ownable, ReentrancyGuard {
   uint256 public tokenIndex = 0;
 
   // Addresses to recieve payout
-  address[4] private _shareholders;
-  uint[4] private _shares;
+  address[6] private _shareholders;
+  uint[6] private _shares;
 
   constructor() ERC721("Metacars", "CAR") {
     baseTokenURI = "";
@@ -41,14 +41,23 @@ contract Metacar is ERC721Enumerable, Ownable, ReentrancyGuard {
     // Set shareholders
     _shareholders[0] = 0x5B72215e47D49357e21a2F783E9b62b9F8949ED1; //K
     _shareholders[1] = 0x0a35deE58a71804427Feb3150f5aC3681F62A0cF; //I
+
     _shareholders[2] = 0xcFE1B40E1827fed718b5df38063c6fD5f3df4Ed9; //MH1
     _shareholders[3] = 0xb35772acA12DdA6986B6BD2C972037ec88F097E5; //MH2
+
+    _shareholders[4] = 0x6c3d3F92e52a85f0e89b51E7Cb7795A12911B76E; //Y
+    _shareholders[5] = 0xb31361553E63c676421A3e8136518ecfd6E5A7aA; //D
+
 
     // Set shares
     _shares[0] = 2000;
     _shares[1] = 2000;
-    _shares[2] = 3000;
-    _shares[3] = 3000;
+
+    _shares[2] = 2500;
+    _shares[3] = 2500;
+
+    _shares[4] = 700;
+    _shares[5] = 300;
 
     // Set addresses of admins and whitelist them
     admins[_shareholders[0]] = true;
@@ -140,7 +149,7 @@ contract Metacar is ERC721Enumerable, Ownable, ReentrancyGuard {
     if(isWhitelistActive){
       return 0.035 ether; // 0.035 ETH
     }
-    return 0.05 ether; // 0.05 ETH
+    return 0.06 ether; // 0.06 ETH
   }
 
   // Returns an URI for a given token ID
@@ -180,7 +189,7 @@ contract Metacar is ERC721Enumerable, Ownable, ReentrancyGuard {
   function withdrawEarnings(uint256 amount) public onlyAdmin {
     require(address(this).balance >= amount, "Insufficient balance");
     uint256 totalShares = 10000;
-    for (uint256 i = 0; i < 4; i++) {
+    for (uint256 i = 0; i < 6; i++) {
         uint256 payment = amount * _shares[i] / totalShares;
         Address.sendValue(payable(_shareholders[i]), payment);
     }
