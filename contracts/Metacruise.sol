@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
-contract Metacar is ERC721Enumerable, Ownable, ReentrancyGuard {
+contract Metacruise is ERC721Enumerable, Ownable, ReentrancyGuard {
 
   // List of admins
   mapping(address => bool) admins;
@@ -35,7 +35,7 @@ contract Metacar is ERC721Enumerable, Ownable, ReentrancyGuard {
   address[6] private _shareholders;
   uint[6] private _shares;
 
-  constructor() ERC721("Metacars", "CAR") {
+  constructor() ERC721("Metacruise", "CRUISER") {
     baseTokenURI = "";
 
     // Set shareholders
