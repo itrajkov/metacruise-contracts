@@ -1,20 +1,15 @@
 import "@nomiclabs/hardhat-ethers";
-import {ethers} from "hardhat";
+import { ethers } from "hardhat";
 
 async function deploy() {
 
-    const Metacar = await ethers.getContractFactory("Metacar");
-    const metacar = await Metacar.deploy();
-    await metacar.deployed();
+    const Metacruise = await ethers.getContractFactory("Metacruise");
+    const metacruise = await Metacruise.deploy();
+    await metacruise.deployed();
 
-    console.log(metacar.address);
+    console.log(metacruise.address);
 
-    return metacar;
+    return metacruise;
 };
 
-// @ts-ignore
-async function mint(metacar){
-    console.log("DONE");
-}
-
-deploy().then(mint);
+deploy();
